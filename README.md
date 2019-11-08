@@ -6,7 +6,7 @@ The Map Suite WPF ApplyDirectionPointStyleForLineStyle sample will guide you to 
 
 Please refer to [Wiki](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf) for the details.
 
-![Screenshot](https://github.com/ThinkGeo/ApplyDirectionPointStyleForLineStyle-ForWpf/blob/master/Screenshot.gif)
+![Screenshot](https://github.com/ThinkGeo/ApplyDirectionPointStyleForLineStyle-ForWpf/blob/master/Screenshot.png)
 
 ### About the Code
 
