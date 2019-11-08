@@ -63,6 +63,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,14 +78,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ThinkGeo.MapSuite, Version=10.0.0.0, Culture=neutral, PublicKeyToken=0828af5241fb4207, processorArchitecture=MSIL">
-      <HintPath>..\packages\ThinkGeo.MapSuite.10.5.7\lib\net45\ThinkGeo.MapSuite.dll</HintPath>
+      <HintPath>..\packages\ThinkGeo.MapSuite.10.5.8\lib\net45\ThinkGeo.MapSuite.dll</HintPath>
     </Reference>
     <Reference Include="ThinkGeo.MapSuite.Layers.ShapeFile, Version=10.0.0.0, Culture=neutral, PublicKeyToken=0828af5241fb4207, processorArchitecture=MSIL">
       <HintPath>..\packages\ThinkGeo.MapSuite.Layers.ShapeFile.10.5.1\lib\net45\ThinkGeo.MapSuite.Layers.ShapeFile.dll</HintPath>
     </Reference>
     <Reference Include="ThinkGeo.MapSuite.ProductCenter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=0828af5241fb4207, processorArchitecture=MSIL">
       <HintPath>..\packages\ThinkGeo.MapSuite.ProductCenter.10.5.6\lib\net45\ThinkGeo.MapSuite.ProductCenter.exe</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="ThinkGeo.MapSuite.Wpf, Version=10.0.0.0, Culture=neutral, PublicKeyToken=0828af5241fb4207, processorArchitecture=MSIL">
       <HintPath>..\packages\MapSuiteDesktopForWpf-BareBone.10.5.10\lib\net45\ThinkGeo.MapSuite.Wpf.dll</HintPath>
@@ -155,7 +155,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AppData\Austinstreets.mdb">
+    <None Include="AppData\Arrow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -166,7 +166,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MapSuiteDependency-SkiaSharp.10.5.0\build\net45\MapSuiteDependency-SkiaSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MapSuiteDependency-SkiaSharp.10.5.0\build\net45\MapSuiteDependency-SkiaSharp.targets'))" />
-    <Error Condition="!Exists('..\packages\ThinkGeo.MapSuite.10.5.7\build\net45\ThinkGeo.MapSuite.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ThinkGeo.MapSuite.10.5.7\build\net45\ThinkGeo.MapSuite.targets'))" />
+    <Error Condition="!Exists('..\packages\ThinkGeo.MapSuite.10.5.8\build\net45\ThinkGeo.MapSuite.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ThinkGeo.MapSuite.10.5.8\build\net45\ThinkGeo.MapSuite.targets'))" />
   </Target>
-  <Import Project="..\packages\ThinkGeo.MapSuite.10.5.7\build\net45\ThinkGeo.MapSuite.targets" Condition="Exists('..\packages\ThinkGeo.MapSuite.10.5.7\build\net45\ThinkGeo.MapSuite.targets')" />
+  <Import Project="..\packages\ThinkGeo.MapSuite.10.5.8\build\net45\ThinkGeo.MapSuite.targets" Condition="Exists('..\packages\ThinkGeo.MapSuite.10.5.8\build\net45\ThinkGeo.MapSuite.targets')" />
 </Project>

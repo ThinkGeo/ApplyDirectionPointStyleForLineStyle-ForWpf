@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Windows;
+﻿using System.Windows;
 using ThinkGeo.MapSuite;
 using ThinkGeo.MapSuite.Drawing;
 using ThinkGeo.MapSuite.Layers;
@@ -22,13 +20,10 @@ namespace ApplyDirectionPointStyleForLineStyle_ForWpf
 
         private void mapView_Loaded(object sender, RoutedEventArgs e)
         {
-            var imageBytes = Convert.FromBase64String("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAFCAYAAABIHbx0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVChTYzAxMSEKX758efulS5essMmBMFZBbPjKlSv/ofgo0FBfdHkUDpJighhoWAOyXhSD8GEkQw5fvXrVCV0ehYMPAw3YjTuMTBgA4r93NU8NzhcAAAAASUVORK5CYII=".Substring(22));
-            var geoImage = new GeoImage(new MemoryStream(imageBytes));
-
             var lineStyle = new LineStyle(new GeoPen(GeoColors.Black, 16) { StartCap = DrawingLineCap.Round, EndCap = DrawingLineCap.Round }, new GeoPen(GeoColors.White, 13) { StartCap = DrawingLineCap.Round, EndCap = DrawingLineCap.Round });
-            lineStyle.RequiredColumnNames.Add("RECID");
-            lineStyle.DirectionPointStyle = new PointStyle(geoImage);
-            lineStyle.DrawingPointStyle += LineStyle_DrawingPointStyle;
+            lineStyle.RequiredColumnNames.Add("FENAME");
+            lineStyle.DirectionPointStyle = new PointStyle(new GeoImage("AppData\\Arrow.png"));
+            lineStyle.DrawingDirectionPoint += LineStyle_DrawingPointStyle;
 
             var streetsShapeFileFeatureLayer = new ShapeFileFeatureLayer("AppData\\Austinstreets.shp");
             streetsShapeFileFeatureLayer.DrawingQuality = DrawingQuality.HighQuality;
@@ -44,9 +39,9 @@ namespace ApplyDirectionPointStyleForLineStyle_ForWpf
             mapView.Refresh();
         }
 
-        private void LineStyle_DrawingPointStyle(object sender, DrawingPointStyleEventArgs e)
+        private void LineStyle_DrawingPointStyle(object sender, DrawingDirectionPointEventArgs e)
         {
-            if (e.Line.ColumnValues.ContainsKey("RECID") && int.Parse(e.Line.ColumnValues["RECID"]) > 4800)
+            if (e.Line.ColumnValues["FENAME"] =="Mo-Pac")
             {
                 e.RotationAngle = 0;
             }

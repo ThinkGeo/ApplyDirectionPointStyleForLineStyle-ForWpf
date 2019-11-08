@@ -12,13 +12,13 @@ Please refer to [Wiki](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf) 
 
 ``` csharp
 var lineStyle = new LineStyle(new GeoPen(GeoColors.Black, 16) { StartCap = DrawingLineCap.Round, EndCap = DrawingLineCap.Round }, new GeoPen(GeoColors.White, 13) { StartCap = DrawingLineCap.Round, EndCap = DrawingLineCap.Round });
-lineStyle.RequiredColumnNames.Add("RECID");
-lineStyle.DirectionPointStyle = new PointStyle(geoImage);
-lineStyle.DrawingPointStyle += LineStyle_DrawingPointStyle;
+lineStyle.RequiredColumnNames.Add("FENAME");
+lineStyle.DirectionPointStyle = new PointStyle(new GeoImage("AppData\\Arrow.png"));
+lineStyle.DrawingDirectionPoint += LineStyle_DrawingPointStyle;
 
-private void LineStyle_DrawingPointStyle(object sender, DrawingPointStyleEventArgs e)
+private void LineStyle_DrawingPointStyle(object sender, DrawingDirectionPointEventArgs e)
 {
-    if (e.Line.ColumnValues.ContainsKey("RECID") && int.Parse(e.Line.ColumnValues["RECID"]) > 4800)
+    if (e.Line.ColumnValues["FENAME"] =="Mo-Pac")
     {
         e.RotationAngle = 0;
     }
