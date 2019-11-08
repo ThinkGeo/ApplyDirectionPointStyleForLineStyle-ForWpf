@@ -20,8 +20,12 @@ namespace ApplyDirectionPointStyleForLineStyle_ForWpf
 
         private void mapView_Loaded(object sender, RoutedEventArgs e)
         {
+            // Set up the line style with white inner pen and black center pen. 
             var lineStyle = new LineStyle(new GeoPen(GeoColors.Black, 16) { StartCap = DrawingLineCap.Round, EndCap = DrawingLineCap.Round }, new GeoPen(GeoColors.White, 13) { StartCap = DrawingLineCap.Round, EndCap = DrawingLineCap.Round });
+            // Set up the required column name for the style. We will customize the line style based on this column value. 
             lineStyle.RequiredColumnNames.Add("FENAME");
+            
+            // Set up the style for Direction Point and set up the event for customization. 
             lineStyle.DirectionPointStyle = new PointStyle(new GeoImage("AppData\\Arrow.png"));
             lineStyle.DrawingDirectionPoint += LineStyle_DrawingPointStyle;
 
@@ -41,7 +45,8 @@ namespace ApplyDirectionPointStyleForLineStyle_ForWpf
 
         private void LineStyle_DrawingPointStyle(object sender, DrawingDirectionPointEventArgs e)
         {
-            if (e.Line.ColumnValues["FENAME"] =="Mo-Pac")
+            // Customize the direction point for the line feature whose "FENAME" column equals to "Mo-Pac". 
+            if (e.Line.ColumnValues["FENAME"] == "Mo-Pac")
             {
                 e.RotationAngle = 0;
             }
