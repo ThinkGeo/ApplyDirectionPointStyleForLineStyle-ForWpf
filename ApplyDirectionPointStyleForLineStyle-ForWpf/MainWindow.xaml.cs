@@ -1,10 +1,6 @@
 ﻿using System.Windows;
-using ThinkGeo.MapSuite;
-using ThinkGeo.MapSuite.Drawing;
-using ThinkGeo.MapSuite.Layers;
-using ThinkGeo.MapSuite.Shapes;
-using ThinkGeo.MapSuite.Styles;
-using ThinkGeo.MapSuite.Wpf;
+using ThinkGeo.Core;
+using ThinkGeo.UI.Wpf;
 
 namespace ApplyDirectionPointStyleForLineStyle_ForWpf
 {
@@ -46,7 +42,7 @@ namespace ApplyDirectionPointStyleForLineStyle_ForWpf
         private void LineStyle_DrawingPointStyle(object sender, DrawingDirectionPointEventArgs e)
         {
             // Customize the direction point for the line feature whose "FENAME" column equals to "Mo-Pac". 
-            if (e.Line.ColumnValues["FENAME"] == "Mo-Pac")
+            if (e.LineFeature.ColumnValues["FENAME"] == "Mo-Pac")
             {
                 e.RotationAngle = 0;
             }
